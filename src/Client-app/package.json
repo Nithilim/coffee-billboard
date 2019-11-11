@@ -1,0 +1,23 @@
+{
+  "name": "client-app",
+  "version": "1.0.0",
+  "description": "coffee billboard react front",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nithilim/coffee-billboard.git"
+  },
+  "author": "PaulK",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nithilim/coffee-billboard/issues"
+  },
+  "homepage": "https://github.com/Nithilim/coffee-billboard#readme",
+  "dependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  }
+}
