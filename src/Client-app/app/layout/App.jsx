@@ -13,6 +13,7 @@ const App = () => {
 
   const [coffeeFormOpen, setCoffeeFormOpen] = useState(false);
   const [coffeeDetailsOpen, setCoffeeDetailsOpen] = useState(false);
+  const [selectedCoffeeItem, setSelectedCoffeeItem] = useState(null);
 
   const handleCoffeeFormSubmit = addedItem => {
     setCoffeeList([...coffeeList, addedItem]);
@@ -27,11 +28,14 @@ const App = () => {
       <Header />
       <CoffeeDashboard
         coffeeList={coffeeList}
-        setDetailsOpen={setDetailsOpen}
-        detailsOpen={detailsOpen}
-        formOpen={setCoffeeFormOpen}
+        setDetailsOpen={setCoffeeDetailsOpen}
+        detailsOpen={coffeeDetailsOpen}
+        formOpen={coffeeFormOpen}
+        setFormOpen={setCoffeeFormOpen}
         handleFormSubmit={handleCoffeeFormSubmit}
         handleRemove={handleCoffeeItemRemove}
+        selectedItem={selectedCoffeeItem}
+        setSelectedItem={setSelectedCoffeeItem}
       />
     </Fragment>
   );

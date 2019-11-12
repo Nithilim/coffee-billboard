@@ -1,9 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const CoffeeItem = ({ coffee }) => {
+const CoffeeItem = ({
+  coffee,
+  setSelectedItem,
+  setDetailsOpen,
+  handleRemove
+}) => {
   return (
-    <div>
+    <div
+      onClick={() => {
+        setSelectedItem(coffee);
+        setDetailsOpen(true);
+      }}
+    >
       <img src={`/public/assets/${coffee.name}.jpg`} alt="coffee-item" />
       {/* button should remove item and should be round, show up on hover */}
       <button type="button" />
@@ -14,7 +24,10 @@ const CoffeeItem = ({ coffee }) => {
 };
 
 CoffeeItem.propTypes = {
-  coffee: PropTypes.object.isRequired
+  coffee: PropTypes.object.isRequired,
+  setSelectedItem: PropTypes.func(PropTypes.object).isRequired,
+  setDetailsOpen: PropTypes.func(PropTypes.bool).isRequired,
+  handleRemove: PropTypes.func(PropTypes.object, removedItem).isRequired
 };
 
 export default CoffeeItem;
