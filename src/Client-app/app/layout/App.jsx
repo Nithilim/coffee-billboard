@@ -11,6 +11,8 @@ const App = () => {
     { id: 5, name: "test5", price: 25, description: "adadadada" }
   ]);
 
+  const handleCoffeeFormSubmit = () => {};
+
   console.log(coffeeList);
   return (
     <Fragment>
