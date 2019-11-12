@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import Header from "./Header";
-import CoffeeBillboard from "../../features/coffee/dashboard/CoffeeDashboard";
+import CoffeeDashboard from "../../features/coffee/dashboard/CoffeeDashboard";
 
 const App = () => {
   const [coffeeList, setCoffeeList] = useState([
@@ -25,7 +25,7 @@ const App = () => {
   return (
     <Fragment>
       <Header />
-      <CoffeeBillboard
+      <CoffeeDashboard
         coffeeList={coffeeList}
         setDetailsOpen={setDetailsOpen}
         detailsOpen={detailsOpen}

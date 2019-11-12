@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import CoffeeItem from "./CoffeeItem";
 
-const CoffeeBillboard = ({ coffeeList }) => {
+const CoffeeDashboard = ({ coffeeList }) => {
   return (
     <div>
       {coffeeList.map(coffee => (
@@ -12,8 +12,8 @@ const CoffeeBillboard = ({ coffeeList }) => {
   );
 };
 
-CoffeeBillboard.propTypes = {
+CoffeeDashboard.propTypes = {
   coffeeList: PropTypes.array.isRequired
 };
 
-export default CoffeeBillboard;
+export default CoffeeDashboard;
