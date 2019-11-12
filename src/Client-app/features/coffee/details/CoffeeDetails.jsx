@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const CoffeeDetails = coffeeItem => {
+const CoffeeDetails = ({ coffeeItem }) => {
   return (
     <div>
       <img src="" alt="coffee image" />
@@ -11,3 +12,9 @@ const CoffeeDetails = coffeeItem => {
     </div>
   );
 };
+
+CoffeeDetails.propTypes = {
+  coffeeItem: PropTypes.object.isRequired
+};
+
+export default CoffeeDetails;
