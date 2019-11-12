@@ -11,7 +11,15 @@ const App = () => {
     { id: 5, name: "test5", price: 25, description: "adadadada" }
   ]);
 
-  const handleCoffeeFormSubmit = () => {};
+  const [coffeeFormOpen, setCoffeeFormOpen] = useState(false);
+  const [coffeeDetailsOpen, setCoffeeDetailsOpen] = useState(false);
+
+  const handleCoffeeFormSubmit = addedItem => {
+    setCoffeeList([...coffeeList, addedItem]);
+  };
+  const handleCoffeeItemRemove = removedItem => {
+    setCoffeeList([...coffeeList.filter(i => i.id !== removedItem.id)]);
+  };
 
   console.log(coffeeList);
   return (
