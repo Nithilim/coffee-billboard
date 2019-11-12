@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import Header from "./Header";
-import CoffeeBillboard from "../../features/coffee/billboard/CoffeeBillboard";
+import CoffeeBillboard from "../../features/coffee/dashboard/CoffeeDashboard";
 
 const App = () => {
   const [coffeeList, setCoffeeList] = useState([
@@ -25,7 +25,14 @@ const App = () => {
   return (
     <Fragment>
       <Header />
-      <CoffeeBillboard coffeeList={coffeeList} />
+      <CoffeeBillboard
+        coffeeList={coffeeList}
+        setDetailsOpen={setDetailsOpen}
+        detailsOpen={detailsOpen}
+        formOpen={setCoffeeFormOpen}
+        handleFormSubmit={handleCoffeeFormSubmit}
+        handleRemove={handleCoffeeItemRemove}
+      />
     </Fragment>
   );
 };
