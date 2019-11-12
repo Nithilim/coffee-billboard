@@ -4,7 +4,11 @@ const Header = () => {
   return (
     <div>
       <h1 style={{ position: "absolute" }}>Coffee Billboard</h1>
-      <img src="/public/assets/coffee.jpg" alt="coffee-img" />
+      <img
+        style={{ height: 50 }}
+        src="/public/assets/coffee.jpg"
+        alt="coffee-img"
+      />
     </div>
   );
 };
