@@ -21,9 +21,9 @@ const CoffeeDetails = ({ selectedItem, setSelectedItem, setDetailsOpen }) => {
 };
 
 CoffeeDetails.propTypes = {
-  selectedItem: PropTypes.object.isRequired,
-  setSelectedItem: PropTypes.func(PropTypes.object).isRequired,
-  setDetailsOpen: PropTypes.func(PropTypes.bool).isRequired
+  selectedItem: PropTypes.object,
+  setSelectedItem: PropTypes.func,
+  setDetailsOpen: PropTypes.func
 };
 
 export default CoffeeDetails;

@@ -15,11 +15,11 @@ const CoffeeDashboard = ({
   selectedItem,
   setSelectedItem
 }) => {
-  return (
+    return (
     <div>
       <div>
         {coffeeList.map(coffee => (
-          <CoffeeItem key={coffee.id} coffee={coffee} />
+          <CoffeeItem key={coffee.id} coffee={coffee} setSelectedItem={setSelectedItem} setDetailsOpen={setDetailsOpen}/>
         ))}
       </div>
       <div>
@@ -43,14 +43,14 @@ const CoffeeDashboard = ({
 
 CoffeeDashboard.propTypes = {
   coffeeList: PropTypes.array.isRequired,
-  setDetailsOpen: PropTypes.func(PropTypes.bool).isRequired,
+  setDetailsOpen: PropTypes.func,
   detailsOpen: PropTypes.bool.isRequired,
   formOpen: PropTypes.bool.isRequired,
-  setFormOpen: PropTypes.func(PropTypes.bool).isRequired,
-  handleFormSubmit: PropTypes.func(PropTypes.object, addedItem).isRequired,
-  handleRemove: PropTypes.func(PropTypes.object, removedItem).isRequired,
-  selectedItem: PropTypes.object.isRequired,
-  setSelectedItem: PropTypes.func(PropTypes.object).isRequired
+  setFormOpen: PropTypes.func,
+  handleFormSubmit: PropTypes.func.isRequired,
+  handleRemove: PropTypes.func,
+  selectedItem: PropTypes.object,
+  setSelectedItem: PropTypes.func
 };
 
 export default CoffeeDashboard;

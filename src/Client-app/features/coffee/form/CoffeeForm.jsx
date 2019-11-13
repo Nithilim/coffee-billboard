@@ -60,8 +60,8 @@ const CoffeeForm = ({ handleFormSubmit, setFormOpen }) => {
 };
 
 CoffeeForm.prototypes = {
-  handleFormSubmit: PropTypes.func(PropTypes.object, addedItem).isRequired,
-  setFormOpen: PropTypes.func(PropTypes.bool).isRequired
+  handleFormSubmit: PropTypes.func.isRequired,
+  setFormOpen: PropTypes.func.isRequired
 };
 
 export default CoffeeForm;

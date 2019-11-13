@@ -25,9 +25,9 @@ const CoffeeItem = ({
 
 CoffeeItem.propTypes = {
   coffee: PropTypes.object.isRequired,
-  setSelectedItem: PropTypes.func(PropTypes.object).isRequired,
-  setDetailsOpen: PropTypes.func(PropTypes.bool).isRequired,
-  handleRemove: PropTypes.func(PropTypes.object, removedItem).isRequired
+  setSelectedItem: PropTypes.func,
+  setDetailsOpen: PropTypes.func,
+  handleRemove: PropTypes.func
 };
 
 export default CoffeeItem;

@@ -22,7 +22,6 @@ const App = () => {
     setCoffeeList([...coffeeList.filter(i => i.id !== removedItem.id)]);
   };
 
-  console.log(coffeeList);
   return (
     <Fragment>
       <Header />
