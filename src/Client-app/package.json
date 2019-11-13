@@ -20,7 +20,8 @@
   "homepage": "https://github.com/Nithilim/coffee-billboard#readme",
   "dependencies": {
     "react": "^16.11.0",
-    "react-dom": "^16.11.0"
+    "react-dom": "^16.11.0",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
