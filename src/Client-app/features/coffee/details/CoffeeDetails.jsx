@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles from "../../../app/styles/buttons.less";
 
 const CoffeeDetails = ({ selectedItem, setSelectedItem, setDetailsOpen }) => {
   return (
@@ -9,13 +10,13 @@ const CoffeeDetails = ({ selectedItem, setSelectedItem, setDetailsOpen }) => {
       <p>{selectedItem.description}</p>
       <h3>{selectedItem.price}</h3>
       <button
+      className="btn"
         type="button"
-        content="Close"
         onClick={() => {
           setDetailsOpen(false);
           setSelectedItem(null);
         }}
-      />
+      >Close</button>
     </div>
   );
 };
