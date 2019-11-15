@@ -1,8 +1,36 @@
+//Color variables
+@dark: #000;
+@light: #fff;
+@red: #f5564e;
+
+.hover(@color) when (lightness(@color) >= 50%){
+    background-color: darken(@color, 15%);
+}
+
+.hover(@color) when (lightness(@color) < 50%){
+    background-color: lighten(@color, 15%);
+}
+
 .btn{
     padding: 5px;
-    font-size: 1em;
+    text-align: center;
     border: none;
-    color: #fff;
-    background-color: #000;
-    border-radius: 10%;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.dark-btn:extend(.btn){
+    color: @light;
+    background-color: @dark;
+    &:hover{
+        .hover(@dark);
+    }
+}
+
+.red-btn:extend(.btn){
+    color: @light;
+    background-color: @red;
+    &:hover{
+        .hover(@red);
+    }
 }

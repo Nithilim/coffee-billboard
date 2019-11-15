@@ -9,16 +9,15 @@ const CoffeeItem = ({
 }) => {
   return (
     <div
+      className="card"
       onClick={() => {
         setSelectedItem(coffee);
         setDetailsOpen(true);
       }}
     >
-      <img src={`/public/assets/${coffee.name}.jpg`} alt="coffee-item" />
-      {/* button should remove item and should be round, show up on hover */}
-      <button className="btn" type="button" />
+      <img src={`/public/assets/test1.png`} alt="coffee-item" />
       <h3>{coffee.name}</h3>
-      <h2>{coffee.price}</h2>
+      <h4>Price: {coffee.price}</h4>
     </div>
   );
 };

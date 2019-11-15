@@ -16,12 +16,15 @@ const CoffeeDashboard = ({
   setSelectedItem
 }) => {
     return (
-    <div>
-      <div>
+    <div>{
+      !detailsOpen &&
+      <div className="card-container">
         {coffeeList.map(coffee => (
           <CoffeeItem key={coffee.id} coffee={coffee} setSelectedItem={setSelectedItem} setDetailsOpen={setDetailsOpen}/>
         ))}
       </div>
+      }
+      
       <div>
         {detailsOpen && !formOpen && selectedItem && (
           <CoffeeDetails

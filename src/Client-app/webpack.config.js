@@ -8,27 +8,15 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        loader: "babel-loader"
       },
       {
         test: /\.less$/,
-        use:[
-          {
-            loader: "style-loader",
-          },
-          {
-            loader: "css-loader",
-          },
-          {
-            loader: "less-loader"
-          }
-        ]
+        loader:"style-loader!css-loader!less-loader"
       }
-
     ]
   },
+
   resolve: {
     extensions: ["*", ".js", ".jsx"]
   },
