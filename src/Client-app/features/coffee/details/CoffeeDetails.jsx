@@ -3,19 +3,26 @@ import PropTypes from "prop-types";
 
 const CoffeeDetails = ({ selectedItem, setSelectedItem, setDetailsOpen }) => {
   return (
-    <div>
-      <img src="" alt="coffee image" />
+    <div className="details">
+      <img src="../../../public/assets/test1.png" alt="coffee image" />
       <h3>{selectedItem.name}</h3>
-      <p>{selectedItem.description}</p>
+      <p className="description">{selectedItem.description}</p>
       <h3>{selectedItem.price}</h3>
+      <div>
       <button
+      className="red-btn"
         type="button"
-        content="Close"
+      >Delete</button>
+      <button
+      className="dark-btn"
+        type="button"
         onClick={() => {
           setDetailsOpen(false);
           setSelectedItem(null);
         }}
-      />
+      >Close</button>
+      </div>
+      
     </div>
   );
 };
