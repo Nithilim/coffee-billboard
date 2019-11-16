@@ -1,7 +1,8 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 
-const CoffeeDetails = ({ selectedItem, setSelectedItem, setDetailsOpen }) => {
+const CoffeeDetails = ({ selectedItem, setSelectedItem, setDetailsOpen, handleRemove}) => {
   return (
     <div className="details">
       <img src="../../../public/assets/test1.png" alt="coffee image" />
@@ -9,10 +10,15 @@ const CoffeeDetails = ({ selectedItem, setSelectedItem, setDetailsOpen }) => {
       <p className="description">{selectedItem.description}</p>
       <h3>{selectedItem.price}</h3>
       <div>
-      <button
-      className="red-btn"
-        type="button"
-      >Delete</button>
+        <Link to="/">
+        <button
+        onClick={()=>handleRemove(selectedItem)}
+        className="red-btn"
+        type="button">Delete
+        </button>
+        </Link>
+      
+      <Link to="/">
       <button
       className="dark-btn"
         type="button"
@@ -21,6 +27,8 @@ const CoffeeDetails = ({ selectedItem, setSelectedItem, setDetailsOpen }) => {
           setSelectedItem(null);
         }}
       >Close</button>
+      </Link>
+      
       </div>
       
     </div>
@@ -30,7 +38,8 @@ const CoffeeDetails = ({ selectedItem, setSelectedItem, setDetailsOpen }) => {
 CoffeeDetails.propTypes = {
   selectedItem: PropTypes.object,
   setSelectedItem: PropTypes.func,
-  setDetailsOpen: PropTypes.func
+  setDetailsOpen: PropTypes.func,
+  handleRemove: PropTypes.func
 };
 
 export default CoffeeDetails;
