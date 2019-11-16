@@ -1,8 +1,8 @@
 ﻿using Domain.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Caching;
+using System.Threading.Tasks;
 
 namespace Persistence
 {
@@ -24,19 +24,19 @@ namespace Persistence
             _cache[_className] = items;
         }
 
-        public IQueryable<T> Collection()
+        public Task<List<T>> Collection()
         {
-            return items.AsQueryable();
+            return Task.Run(() => items);
         }
 
-        public T Find(Guid id)
+        public Task<T> Find(Guid id)
         {
-            return items.Find(i => i.Id == id);
+            return Task.Run(() => items.Find(i => i.Id == id));
         }
 
-        public void Add(T item)
+        public Task Add(T item)
         {
-            items.Add(item);
+            return Task.Run(() => items.Add(item));
         }
 
         public void Remove(Guid id)
