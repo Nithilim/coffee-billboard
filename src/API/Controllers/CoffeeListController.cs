@@ -1,4 +1,6 @@
-﻿using Domain.Coffee;
+﻿using Application.Coffee;
+using Domain.Models;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,32 +13,32 @@ namespace API.Controllers
     [ApiController]
     public class CoffeeListController
     {
-        private readonly ICoffeeListService _service;
+        private readonly IMediator _mediator;
 
-        public CoffeeListController(ICoffeListService service)
+        public CoffeeListController(IMediator mediator)
         {
-            _service = service;
+            _mediator = mediator;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Coffee>>> CoffeeList()
+        public async ActionResult<List<CoffeeModel>> CoffeeList()
         {
 
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Coffee>> Detail(Guid id)
+        public async ActionResult<CoffeeModel> Detail(Guid id)
         {
 
         }
 
         [HttpPost]
-        public async Task<ActionResult<bool>> Create()
+        public async ActionResult Create()
         {
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(Guid id)
+        public async ActionResult Delete(Guid id)
         {
         }
     }
