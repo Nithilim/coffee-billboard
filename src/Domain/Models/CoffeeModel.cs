@@ -1,11 +1,6 @@
-﻿using Application;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Domain.Coffee
+﻿namespace Domain.Models
 {
-    public class Coffee : BaseModel
+    public class CoffeeModel : BaseModel
     {
         public string Name { get; set; }
 
