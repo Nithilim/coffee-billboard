@@ -2,13 +2,13 @@ import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 
-const CoffeeDetails = ({ selectedItem, setSelectedItem, setDetailsOpen, handleRemove}) => {
+const CoffeeDetails = ({ selectedItem, setSelectedItem, handleRemove}) => {
   return (
-    <div className="details">
+    <div className="data-container">
       <img src="../../../public/assets/test1.png" alt="coffee image" />
       <h3>{selectedItem.name}</h3>
       <p className="description">{selectedItem.description}</p>
-      <h3>{selectedItem.price}</h3>
+      <h3>{selectedItem.price} {selectedItem.currency}</h3>
       <div>
         <Link to="/">
         <button
@@ -23,7 +23,6 @@ const CoffeeDetails = ({ selectedItem, setSelectedItem, setDetailsOpen, handleRe
       className="dark-btn"
         type="button"
         onClick={() => {
-          setDetailsOpen(false);
           setSelectedItem(null);
         }}
       >Close</button>
@@ -38,7 +37,6 @@ const CoffeeDetails = ({ selectedItem, setSelectedItem, setDetailsOpen, handleRe
 CoffeeDetails.propTypes = {
   selectedItem: PropTypes.object,
   setSelectedItem: PropTypes.func,
-  setDetailsOpen: PropTypes.func,
   handleRemove: PropTypes.func
 };
 

@@ -2,6 +2,7 @@
 @dark: #000;
 @light: #fff;
 @red: #f5564e;
+@green: #71a95a;
 
 .hover(@color) when (lightness(@color) >= 50%){
     background-color: darken(@color, 15%);
@@ -13,7 +14,7 @@
 
 .btn{
     padding: 5px;
-    margin: 15px;
+    margin: 5px;
     text-align: center;
     border: none;
     font-size: 1rem;
@@ -25,6 +26,14 @@
     background-color: @dark;
     &:hover{
         .hover(@dark);
+    }
+}
+
+.green-btn:extend(.btn){
+    color: @light;
+    background-color: @green;
+    &:hover{
+        .hover(@green);
     }
 }
 
