@@ -12,4 +12,12 @@
     <OutputPath>../bin/Release</OutputPath>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.Caching" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
 </Project>
