@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const CoffeeDetails = ({ selectedItem, setSelectedItem, handleRemove}) => {
   return (
     <div className="data-container">
-      <img src="../../../public/assets/test1.png" alt="coffee image" />
+      <img src={selectedItem.imageUrl} alt="coffee image" />
       <h3>{selectedItem.name}</h3>
       <p className="description">{selectedItem.description}</p>
       <h3>{selectedItem.price} {selectedItem.currency}</h3>

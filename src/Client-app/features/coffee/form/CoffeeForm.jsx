@@ -7,7 +7,8 @@ const CoffeeForm = ({ handleFormSubmit }) => {
     name: "",
     description: "",
     price: null,
-    currency: ""
+    currency: "",
+    imageUrl: ""
   });
 
   const handleInputChange = event => {
@@ -49,20 +50,29 @@ const CoffeeForm = ({ handleFormSubmit }) => {
         placeholder="Coffee Price Currency"
         onChange={handleInputChange}
         value={coffee.currency}/>
-      <h4>Image Upload</h4>
-      <Link to="/">
-      <button className="green-btn" type="submit" onClick={()=>{
-        let addedItem = {
-          ...coffee
-        };
-        handleFormSubmit(addedItem);
-      }}>
-        Submit
-      </button>
-      </Link>
-      <Link to="/">
-        <button className="dark-btn" type="button">Close</button>
-      </Link>
+      <h4>Image Url</h4>
+      <input
+        type="text"
+        name="imageUrl"
+        placeholder="Image Url"
+        onChange={handleInputChange}
+        value={coffee.imageUrl}/>
+      <br/>
+      <div className="button-container">
+        <Link to="/">
+        <button className="green-btn" type="submit" onClick={()=>{
+          let addedItem = {
+            ...coffee
+          };
+          handleFormSubmit(addedItem);
+        }}>
+          Submit
+        </button>
+        </Link>
+        <Link to="/">
+          <button className="dark-btn" type="button">Close</button>
+        </Link>
+      </div>
     </div>
   );
 };
