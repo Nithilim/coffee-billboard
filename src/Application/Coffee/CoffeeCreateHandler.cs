@@ -23,6 +23,7 @@ namespace Application.Coffee
             };
 
             await _repository.Add(item);
+            _repository.Commit();
             return Unit.Value;
         }
     }

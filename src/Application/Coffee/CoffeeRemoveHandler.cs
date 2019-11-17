@@ -20,6 +20,7 @@ namespace Application.Coffee
                 throw new Exception($"Failed to remove item with {request.Id}");
 
             _repository.Remove(request.Id);
+            _repository.Commit();
             return Unit.Value;
         }
     }
