@@ -32,7 +32,8 @@ namespace Application.Coffee {
                 Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eleifend congue quam et blandit." +
                 " Phasellus blandit malesuada iaculis. Quisque non.",
                 Currency = "Eur",
-                Price = GenerateRandomPrice()
+                Price = GenerateRandomPrice(),
+                ImageUrl= "https://cdn.pixabay.com/photo/2015/10/12/14/54/coffee-983955_960_720.jpg"
             };
         }
 
