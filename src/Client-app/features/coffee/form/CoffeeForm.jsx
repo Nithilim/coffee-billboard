@@ -1,67 +1,74 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import uuid from "uuid";
 
-const CoffeeForm = ({ handleFormSubmit, setFormOpen }) => {
-  const initialState = () => {
-    if (initialFormState) return initialFormState;
-    else {
-      return {
-        id: "",
-        name: "",
-        description: ""
-      };
-    }
-  };
+const CoffeeForm = ({ handleFormSubmit }) => {
+  const [coffee, setCoffee] = useState({
+    name: "",
+    description: "",
+    price: null,
+    currency: ""
+  });
 
-  const [coffee, setCoffee] = useState(initialState);
   const handleInputChange = event => {
     const { name, value } = event.currentTarget;
     setCoffee({ ...coffee, [name]: value });
   };
 
-  const handleSubmit = () => {
-    let addedItem = {
-      ...coffee,
-      id: uuid()
-    };
-    handleFormSubmit(addedItem);
-  };
-
   return (
-    <div>
-      <h3>Coffee creation form</h3>
-      <p>Name</p>
+    <div className="data-container">
+      <h2>Coffee creation form</h2>
+      <h4>Name</h4>
       <input
         type="text"
         name="name"
         placeholder="Coffee name"
         onChange={handleInputChange}
+        value={coffee.name}
       />
-      <p>Description</p>
-      <input
+      <h4>Description</h4>
+      <textarea
         type="text"
         name="description"
         placeholder="Coffee Description"
         onChange={handleInputChange}
+        value={coffee.description}
       />
-      <p>Price</p>
+      <h4>Price</h4>
       <input
-        type="text"
+        type="number"
         name="price"
         placeholder="Coffee Price"
         onChange={handleInputChange}
+        value={coffee.price}
       />
-      <p>Image Upload</p>
-      <button type="submit" content="Submit" onClick={handleSubmit()} />
-      <button type="button" content="Cancel" onClick={setFormOpen(false)} />
+      <h4>Currency</h4>
+      <input 
+        type="text"
+        name="currency"
+        placeholder="Coffee Price Currency"
+        onChange={handleInputChange}
+        value={coffee.currency}/>
+      <h4>Image Upload</h4>
+      <Link to="/">
+      <button className="green-btn" type="submit" onClick={()=>{
+        let addedItem = {
+          ...coffee
+        };
+        handleFormSubmit(addedItem);
+      }}>
+        Submit
+      </button>
+      </Link>
+      <Link to="/">
+        <button className="dark-btn" type="button">Close</button>
+      </Link>
     </div>
   );
 };
 
 CoffeeForm.prototypes = {
-  handleFormSubmit: PropTypes.func.isRequired,
-  setFormOpen: PropTypes.func.isRequired
+  handleFormSubmit: PropTypes.func.isRequired
 };
 
 export default CoffeeForm;

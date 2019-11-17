@@ -1,14 +1,14 @@
 import React, { useState, useEffect, Fragment } from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import agent from "../../api/agent";
 import Header from "./Header";
 import CoffeeDashboard from "../../features/coffee/dashboard/CoffeeDashboard";
-import agent from "../../api/agent";
 import CoffeeDetails from "../../features/coffee/details/CoffeeDetails";
+import CoffeeForm from "../../features/coffee/form/CoffeeForm";
+import Menu from "./Menu";
 
 const App = () => {
   const [coffeeList, setCoffeeList] = useState([]);
-  const [coffeeFormOpen, setCoffeeFormOpen] = useState(false);
-  const [coffeeDetailsOpen, setCoffeeDetailsOpen] = useState(false);
   const [selectedCoffeeItem, setSelectedCoffeeItem] = useState(null);
 
   const handleCoffeeFormSubmit = addedItem => {
@@ -37,31 +37,28 @@ const App = () => {
 
   return (
     <Router>
-      <button className="dark-btn" onClick={() => handleRandomSeedGeneration()}/>
       <Header />
+      <Menu 
+        handleRandomSeedGeneration={handleRandomSeedGeneration}
+        />
       <Switch>
         <Route path="/" exact>
           <CoffeeDashboard
           coffeeList={coffeeList}
-          setDetailsOpen={setCoffeeDetailsOpen}
-          detailsOpen={coffeeDetailsOpen}
-          formOpen={coffeeFormOpen}
-          setFormOpen={setCoffeeFormOpen}
-          handleFormSubmit={handleCoffeeFormSubmit}
-          handleRemove={handleCoffeeItemRemove}
-          selectedItem={selectedCoffeeItem}
           setSelectedItem={setSelectedCoffeeItem}
           />
         </Route>
         <Route path="/product=:id">
           {selectedCoffeeItem &&
             <CoffeeDetails
-            selectedItem={selectedCoffeeItem}
-            setSelectedItem={setSelectedItem}
-            setDetailsOpen={setDetailsOpen}
-            handleRemove={handleRemove}
+              selectedItem={selectedCoffeeItem}
+              setSelectedItem={setSelectedCoffeeItem}
+              handleRemove={handleCoffeeItemRemove}
           />
           }
+        </Route>
+        <Route path="/create">
+          <CoffeeForm handleFormSubmit={handleCoffeeFormSubmit}/>
         </Route>
       </Switch>
     </Router> 

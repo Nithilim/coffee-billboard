@@ -13,7 +13,7 @@ const Coffee = {
         return Axions.get(`/CoffeeList/${id}`);
     },
     create: (coffeeItem) => {
-        return Axios.post("CoffeeList", coffeeItem);
+        return Axios.post("/CoffeeList", coffeeItem);
     },
     delete: (id) => {
         return Axios.delete(`/CoffeeList/${id}`);
