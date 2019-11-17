@@ -16,11 +16,13 @@ namespace Application.Coffee {
         }
 
         public async Task<List<CoffeeModel>> Handle(CoffeeItemSeedQuery request, CancellationToken cancellationToken) {
+            var items = new List<CoffeeModel>();
             for (int i = 0; i < 10; i++)
-                await _repository.Add(CreateRandomItem());
+                items.Add(CreateRandomItem());
 
+            await _repository.AddRange(items);
             _repository.Commit();
-            return await _repository.Collection();
+            return items;
         }
 
         private CoffeeModel CreateRandomItem() {
@@ -30,7 +32,8 @@ namespace Application.Coffee {
                 Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eleifend congue quam et blandit." +
                 " Phasellus blandit malesuada iaculis. Quisque non.",
                 Currency = "Eur",
-                Price = GenerateRandomPrice()
+                Price = GenerateRandomPrice(),
+                ImageUrl= "https://cdn.pixabay.com/photo/2015/10/12/14/54/coffee-983955_960_720.jpg"
             };
         }
 

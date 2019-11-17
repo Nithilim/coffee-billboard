@@ -19,7 +19,8 @@ namespace Application.Coffee
                 Currency = request.Currency,
                 Name = request.Name,
                 Description = request.Description,
-                Price = request.Price
+                Price = request.Price,
+                ImageUrl = request.ImageUrl
             };
 
             await _repository.Add(item);

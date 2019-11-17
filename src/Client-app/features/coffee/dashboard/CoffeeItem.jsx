@@ -11,7 +11,7 @@ const CoffeeItem = ({
       <div
         onClick={() => {
           setSelectedItem(coffee)}}>
-        <img src={`/public/assets/test1.png`} alt="coffee-item" />
+        <img src={coffee.imageUrl} alt="coffee-item" />
         <h3>{coffee.name}</h3>
         <h4>Price: {coffee.price} {coffee.currency}</h4>
       </div>
