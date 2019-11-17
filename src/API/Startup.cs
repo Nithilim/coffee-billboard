@@ -20,7 +20,7 @@ namespace API {
         public void ConfigureServices(IServiceCollection services) {
             services.AddSingleton<InMemoryRepository<CoffeeModel>>();
             services.AddCors(opt => opt.AddPolicy("CorsPolicy", policy =>
-                policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000")));
+                policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:8080")));
             services.AddMediatR(typeof(CoffeeListQuery).Assembly);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

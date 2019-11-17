@@ -16,11 +16,13 @@ namespace Application.Coffee {
         }
 
         public async Task<List<CoffeeModel>> Handle(CoffeeItemSeedQuery request, CancellationToken cancellationToken) {
+            var items = new List<CoffeeModel>();
             for (int i = 0; i < 10; i++)
-                await _repository.Add(CreateRandomItem());
+                items.Add(CreateRandomItem());
 
+            await _repository.AddRange(items);
             _repository.Commit();
-            return await _repository.Collection();
+            return items;
         }
 
         private CoffeeModel CreateRandomItem() {

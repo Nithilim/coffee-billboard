@@ -16,7 +16,7 @@ namespace Application.Coffee
 
         public async Task<Unit> Handle(CoffeeRemoveCommand request, CancellationToken cancellationToken) {
             var item = await _repository.Find(request.Id);
-            if (item != null)
+            if (item == null)
                 throw new Exception($"Failed to remove item with {request.Id}");
 
             _repository.Remove(request.Id);
