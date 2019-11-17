@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Persistence
 {
-    public class InMemoryRepository<T> where T : BaseModel
-    {
+    public class InMemoryRepository<T> where T : BaseModel {
         private readonly ObjectCache _cache;
         private readonly string _className;
         private List<T> items;
 
-        public InMemoryRepository()
-        {
+        public InMemoryRepository() {
             _cache = MemoryCache.Default;
             _className = typeof(T).Name;
             items = _cache[_className] as List<T>;
+            if (items == null)
+                items = new List<T>();
         }
 
         public void Commit()
