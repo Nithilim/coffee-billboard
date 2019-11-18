@@ -38,23 +38,20 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <Menu 
-        handleRandomSeedGeneration={handleRandomSeedGeneration}
-        />
       <Switch>
         <Route path="/" exact>
+        <Menu 
+          handleRandomSeedGeneration={handleRandomSeedGeneration}/>
           <CoffeeDashboard
-          coffeeList={coffeeList}
-          setSelectedItem={setSelectedCoffeeItem}
-          />
+            coffeeList={coffeeList}
+            setSelectedItem={setSelectedCoffeeItem}/>
         </Route>
         <Route path="/product=:id">
           {selectedCoffeeItem &&
             <CoffeeDetails
               selectedItem={selectedCoffeeItem}
               setSelectedItem={setSelectedCoffeeItem}
-              handleRemove={handleCoffeeItemRemove}
-          />
+              handleRemove={handleCoffeeItemRemove}/>
           }
         </Route>
         <Route path="/create">
