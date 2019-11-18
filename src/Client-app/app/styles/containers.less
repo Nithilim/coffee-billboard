@@ -15,6 +15,12 @@ body{
     padding: 5% 10%;
 }
 
+.details-img{
+    object-fit: scale-down;
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .button-container{
     margin: 20px 10px 0px;
 }
@@ -50,17 +56,21 @@ body{
 @media (max-width:950px){
     .card-container{
         grid-template-columns: repeat(3, 1fr);
+        row-gap: 1.5%;
     }
 }
 
 @media (max-width:750px){
     .card-container{
         grid-template-columns: repeat(2, 1fr);
+        column-gap: 3%;
+        row-gap: 1%;
     }
 }
 
 @media (max-width:550px){
     .card-container{
         grid-template-columns: 1fr;
+        gap: 0.5%
     }
 }
