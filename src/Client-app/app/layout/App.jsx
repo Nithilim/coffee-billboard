@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect} from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import agent from "../../api/agent";
 import Header from "./Header";
@@ -25,36 +25,33 @@ const App = () => {
 
   const handleRandomSeedGeneration = () => {
     agent.Coffee.generateRandom().then(response => {
-      setCoffeeList([coffeeList, response.data]);
+      setCoffeeList(coffeeList.concat(response.data));
     });
   };
 
-  useEffect(() => {
-    agent.Coffee.getAll().then(response => {
-      setCoffeeList(response.data);
-    });
-  }, []);
-
+   useEffect(() => {
+     agent.Coffee.getAll().then(response => {
+       setCoffeeList(response.data);
+     });
+   }, []);
+   
   return (
     <Router>
       <Header />
-      <Menu 
-        handleRandomSeedGeneration={handleRandomSeedGeneration}
-        />
       <Switch>
         <Route path="/" exact>
+        <Menu 
+          handleRandomSeedGeneration={handleRandomSeedGeneration}/>
           <CoffeeDashboard
-          coffeeList={coffeeList}
-          setSelectedItem={setSelectedCoffeeItem}
-          />
+            coffeeList={coffeeList}
+            setSelectedItem={setSelectedCoffeeItem}/>
         </Route>
         <Route path="/product=:id">
           {selectedCoffeeItem &&
             <CoffeeDetails
               selectedItem={selectedCoffeeItem}
               setSelectedItem={setSelectedCoffeeItem}
-              handleRemove={handleCoffeeItemRemove}
-          />
+              handleRemove={handleCoffeeItemRemove}/>
           }
         </Route>
         <Route path="/create">

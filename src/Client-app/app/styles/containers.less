@@ -15,6 +15,12 @@ body{
     padding: 5% 10%;
 }
 
+.details-img{
+    object-fit: scale-down;
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .button-container{
     margin: 20px 10px 0px;
 }
@@ -23,22 +29,24 @@ body{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     list-style: none;
+    gap: 2.5%;
+    padding: 3%;
 }
 
 .card{
-    margin: 8% 5% 0%;
     min-width: 200px;
     background-color: #dedede;
     text-align: center;
     text-decoration: none;
     color: #000;
-    border-style: solid;
-    border-width: 2;
-    border-color: #393e46;
+    border: 1.5px solid #393e46;
     border-radius: 15px;
+    &:hover{
+        box-shadow: 1px 1px 6px #1d2025;
+    }
     img{
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
         width: 100%;
     }
 }
@@ -46,17 +54,21 @@ body{
 @media (max-width:950px){
     .card-container{
         grid-template-columns: repeat(3, 1fr);
+        row-gap: 1.5%;
     }
 }
 
 @media (max-width:750px){
     .card-container{
         grid-template-columns: repeat(2, 1fr);
+        column-gap: 3%;
+        row-gap: 1%;
     }
 }
 
 @media (max-width:550px){
     .card-container{
         grid-template-columns: 1fr;
+        gap: 0.5%
     }
 }
